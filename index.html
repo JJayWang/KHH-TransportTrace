@@ -141,9 +141,9 @@
         <table class="estimate-table">
             <thead>
                 <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
+                    <th>站名</th>
+                    <th id="direct-one">#</th>
+                    <th id="direct-two">#</th>
                 </tr>
             </thead>
             <tbody id="estimate-container">
@@ -205,16 +205,23 @@
                 let html = '<tr><td colspan="3">無列車資訊</td></tr>'
                 if (realData && realData.length > 0) {
                     html = '';
-                    realData.forEach((item) => {
-                        console.log(item);
+                    for (let i = 0; i < realData.length; i+=2) {
+                        const direct = realData[i];
+                        const otherDirect = realData[i+1];
+                        if(i === 2){
+                            const dirWrap = document.getElementById("direct-one");
+                            dirWrap.innerText = direct.TripHeadSign;
+                            const otherDirWrap = document.getElementById("direct-two");
+                            otherDirWrap.innerText = otherDirect.TripHeadSign;
+                        }
                         let temp = `
                             <tr>
-                                <td>${item.StationName[lang]}</td>
+                                <td>${direct.StationName[lang]}</td>
                                 <td>B</td>
                                 <td>C</td>
                             </tr>`;
                         html += temp;
-                    });
+                    }
                 }
                 const container = document.getElementById("estimate-container");
                 container.innerHTML = html;
