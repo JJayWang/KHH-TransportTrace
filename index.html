@@ -116,31 +116,27 @@
             <div class="function-item">
                 <div class="input-group">
                     <label for="">交通系統</label>
-                    <select class="function-select">
-                        <option value="">AAAAAAAAAAA</option>
-                        <option value="">AAAAAAAAAAA</option>
-                        <option value="">AAAAAAAAAAA</option>
-                        <option value="">AAAAAAAAAAA</option>
+                    <select id="transport-system" class="function-select">
+                        <option value="">請選擇</option>
+                        <option value="KRTC">高雄捷運</option>
+                        <option value="KLRT">高雄輕軌</option>
                     </select>
                 </div>
             </div>
             <div class="function-item">
                 <div class="input-group">
                     <label for="">路線</label>
-                    <select class="function-select">
-                        <option value="">BBBBBBBBBBBBB</option>
-                        <option value="">BBBBBBBBBBBBB</option>
-                        <option value="">BBBBBBBBBBBBB</option>
-                        <option value="">BBBBBBBBBBBBB</option>
+                    <select id="transport-line" class="function-select">
+                        <option value="">請選擇</option>
                     </select>
                 </div>
             </div>
             <div class="function-item">
-                <a href="#" class="search-button">搜尋</a>
+                <a href="#" id="real-search" class="search-button">搜尋</a>
             </div>
-            
-            
-            
+
+
+
         </div>
         <table class="estimate-table">
             <thead>
@@ -150,111 +146,9 @@
                     <th>C</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="estimate-container">
                 <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>B</td>
-                    <td>C</td>
+                    <td colspan="3">無列車資訊</td>
                 </tr>
             </tbody>
         </table>
@@ -262,6 +156,71 @@
             AAAA
         </div>
     </div>
+    <script>
+        (function () {
+            const lang = "Zh_tw";
+            const transLine = {
+                KRTC: [{ Zh_tw: "紅線", value: "R" }, { Zh_tw: "橘線", value: "O" }],
+                KLRT: [{ Zh_tw: "環狀線", value:"C" }]
+            }
+
+            const lineSelect = document.getElementById("transport-line");
+            const transSys = document.getElementById("transport-system");
+            transSys.addEventListener('change', function () {
+                let system = transLine[this.value];
+                let html = '<option value="">請選擇</option>';
+                if (system) {
+                    system.forEach(element => {
+                        html += '<option value="' + element.value + '">' + element[lang] + '</option>'
+                    });
+                }
+
+                lineSelect.innerHTML = html;
+            });
+
+            const searchBtn = document.getElementById("real-search");
+            searchBtn.addEventListener('click', function () {
+                let sys = transSys.value;
+                let line = lineSelect.value;
+                if (sys !== '' && line !== '') {
+                    let url = `https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/LiveBoard/${transSys.value}?%24filter=LineID%20eq%20'${lineSelect.value}'&%24format=JSON`;
+                    let getStation = new XMLHttpRequest();
+                    getStation.open('get', url);
+                    getStation.send();
+                    getStation.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            if (this.status >= 200 && this.readyState < 300) {
+                                console.log(JSON.parse(this.response));
+                                refreshTable(JSON.parse(this.response));
+                            }
+                        }
+                    }
+                }else{
+                    refreshTable([]);
+                }
+
+            });
+
+            function refreshTable(realData) {
+                let html = '<tr><td colspan="3">無列車資訊</td></tr>'
+                if (realData && realData.length > 0) {
+                    html = '';
+                    realData.forEach((item) => {
+                        console.log(item);
+                        let temp = `
+                            <tr>
+                                <td>${item.StationName[lang]}</td>
+                                <td>B</td>
+                                <td>C</td>
+                            </tr>`;
+                        html += temp;
+                    });
+                }
+                const container = document.getElementById("estimate-container");
+                container.innerHTML = html;
+            }
+        })()
+    </script>
 </body>
 
 </html>
