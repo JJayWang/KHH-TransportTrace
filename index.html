@@ -27,7 +27,8 @@
         }
 
         .container {
-            width: 600px;
+            /* width: 600px; */
+            width: 50%;
             margin: auto;
         }
 
@@ -37,15 +38,16 @@
             display: flex;
         }
 
-        .container .function .function-item:not(:last-child) {
+        .container .function .function-item {
             display: flex;
-            width: 400px;
+            /* width: 400px; */
+            flex: 1;
             box-sizing: border-box;
             margin-right: 5px;
 
         }
 
-        .container .function .function-item:last-child {
+        .container .function .search-item {
             align-self: flex-end;
             width: 150px;
         }
@@ -54,7 +56,7 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            width: 100px;
+            width: 100%;
             font-size: 20px;
             padding: 4px 0;
             border: 1px solid #fff;
@@ -101,6 +103,37 @@
         .container table td {
             border: 1px solid #999;
         }
+
+        .container .copy-right {
+            margin-top: 5px;
+            text-align: center;
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .copy-right a {
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container .function {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .container .function .function-item {
+                width: auto !important;
+                padding-bottom: 10px;
+                margin: 0 !important;
+            }
+
+            .container .function .search-item {
+                align-self: stretch !important;
+                width: auto;
+            }
+            
+        }
     </style>
 </head>
 
@@ -131,7 +164,7 @@
                     </select>
                 </div>
             </div>
-            <div class="function-item">
+            <div class="search-item">
                 <a href="#" id="real-search" class="search-button">搜尋</a>
             </div>
         </div>
@@ -150,7 +183,8 @@
             </tbody>
         </table>
         <div class="copy-right">
-            AAAA
+            Copyright © 2022 JJ Wang. All rights reserved. Source code at <a
+                href="https://github.com/JJayWang/KHH-TransportTrace">Github</a>.
         </div>
     </div>
     <script>
