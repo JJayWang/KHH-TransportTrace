@@ -134,16 +134,13 @@
             <div class="function-item">
                 <a href="#" id="real-search" class="search-button">搜尋</a>
             </div>
-
-
-
         </div>
         <table class="estimate-table">
             <thead>
                 <tr>
                     <th>站名</th>
-                    <th id="direct-one">#</th>
-                    <th id="direct-two">#</th>
+                    <th id="direct-one">-</th>
+                    <th id="direct-two">-</th>
                 </tr>
             </thead>
             <tbody id="estimate-container">
@@ -158,10 +155,1151 @@
     </div>
     <script>
         (function () {
+            let demo = [
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C1",
+                    "StationName": {
+                        "Zh_tw": "籬仔內",
+                        "En": "Lizihnei"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 9,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C1",
+                    "StationName": {
+                        "Zh_tw": "籬仔內",
+                        "En": "Lizihnei"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 20,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C2",
+                    "StationName": {
+                        "Zh_tw": "凱旋瑞田",
+                        "En": "Kaisyuan Rueitian"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 12,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C2",
+                    "StationName": {
+                        "Zh_tw": "凱旋瑞田",
+                        "En": "Kaisyuan Rueitian"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 17,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C3",
+                    "StationName": {
+                        "Zh_tw": "前鎮之星",
+                        "En": "Cianjhen Star"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 14,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C3",
+                    "StationName": {
+                        "Zh_tw": "前鎮之星",
+                        "En": "Cianjhen Star"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 15,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C4",
+                    "StationName": {
+                        "Zh_tw": "凱旋中華",
+                        "En": "Kaisyuan Jhonghua"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C4",
+                    "StationName": {
+                        "Zh_tw": "凱旋中華",
+                        "En": "Kaisyuan Jhonghua"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 13,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C5",
+                    "StationName": {
+                        "Zh_tw": "夢時代",
+                        "En": "Dream Mall"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C5",
+                    "StationName": {
+                        "Zh_tw": "夢時代",
+                        "En": "Dream Mall"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 11,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C6",
+                    "StationName": {
+                        "Zh_tw": "經貿園區",
+                        "En": "Commerce and Trade Park"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 4,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C6",
+                    "StationName": {
+                        "Zh_tw": "經貿園區",
+                        "En": "Commerce and Trade Park"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 8,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C7",
+                    "StationName": {
+                        "Zh_tw": "軟體園區",
+                        "En": "Software Technology Park"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 7,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C7",
+                    "StationName": {
+                        "Zh_tw": "軟體園區",
+                        "En": "Software Technology Park"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 6,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C8",
+                    "StationName": {
+                        "Zh_tw": "高雄展覽館",
+                        "En": "Kaohsiung Exhibition Center"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 10,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C8",
+                    "StationName": {
+                        "Zh_tw": "高雄展覽館",
+                        "En": "Kaohsiung Exhibition Center"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C9",
+                    "StationName": {
+                        "Zh_tw": "旅運中心",
+                        "En": "Cruise Terminal"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 12,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C9",
+                    "StationName": {
+                        "Zh_tw": "旅運中心",
+                        "En": "Cruise Terminal"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C10",
+                    "StationName": {
+                        "Zh_tw": "光榮碼頭",
+                        "En": "Glory Pier"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 2,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C10",
+                    "StationName": {
+                        "Zh_tw": "光榮碼頭",
+                        "En": "Glory Pier"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 0,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C11",
+                    "StationName": {
+                        "Zh_tw": "真愛碼頭",
+                        "En": "Love Pier"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C11",
+                    "StationName": {
+                        "Zh_tw": "真愛碼頭",
+                        "En": "Love Pier"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 12,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C12",
+                    "StationName": {
+                        "Zh_tw": "駁二大義",
+                        "En": "Dayi Pier-2"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 5,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C12",
+                    "StationName": {
+                        "Zh_tw": "駁二大義",
+                        "En": "Dayi Pier-2"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 10,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C13",
+                    "StationName": {
+                        "Zh_tw": "駁二蓬萊",
+                        "En": "Penglai Pier-2"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 6,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C13",
+                    "StationName": {
+                        "Zh_tw": "駁二蓬萊",
+                        "En": "Penglai Pier-2"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 8,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C14",
+                    "StationName": {
+                        "Zh_tw": "哈瑪星",
+                        "En": "Hamasen"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 10,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C14",
+                    "StationName": {
+                        "Zh_tw": "哈瑪星",
+                        "En": "Hamasen"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 5,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C15",
+                    "StationName": {
+                        "Zh_tw": "壽山公園站",
+                        "En": "Shoushan Park"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 12,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C15",
+                    "StationName": {
+                        "Zh_tw": "壽山公園站",
+                        "En": "Shoushan Park"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C16",
+                    "StationName": {
+                        "Zh_tw": "文武聖殿站",
+                        "En": "Wenwu Temple"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 0,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C16",
+                    "StationName": {
+                        "Zh_tw": "文武聖殿站",
+                        "En": "Wenwu Temple"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C17",
+                    "StationName": {
+                        "Zh_tw": "鼓山區公所站",
+                        "En": "Gushan District Office"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C17",
+                    "StationName": {
+                        "Zh_tw": "鼓山區公所站",
+                        "En": "Gushan District Office"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 0,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C18",
+                    "StationName": {
+                        "Zh_tw": "鼓山",
+                        "En": "Gushan"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C18",
+                    "StationName": {
+                        "Zh_tw": "鼓山",
+                        "En": "Gushan"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C19",
+                    "StationName": {
+                        "Zh_tw": "馬卡道",
+                        "En": "Makadao"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 6,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C19",
+                    "StationName": {
+                        "Zh_tw": "馬卡道",
+                        "En": "Makadao"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C20",
+                    "StationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 7,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C20",
+                    "StationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C32",
+                    "StationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C32",
+                    "StationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 4,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C33",
+                    "StationName": {
+                        "Zh_tw": "衛生局站",
+                        "En": "Department of Health"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 0,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C33",
+                    "StationName": {
+                        "Zh_tw": "衛生局站",
+                        "En": "Department of Health"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C34",
+                    "StationName": {
+                        "Zh_tw": "五權國小站",
+                        "En": "Wucyuan Elementary School"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 2,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C34",
+                    "StationName": {
+                        "Zh_tw": "五權國小站",
+                        "En": "Wucyuan Elementary School"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C35",
+                    "StationName": {
+                        "Zh_tw": "凱旋武昌站",
+                        "En": "Kaisyuan Wuchang"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 3,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C35",
+                    "StationName": {
+                        "Zh_tw": "凱旋武昌站",
+                        "En": "Kaisyuan Wuchang"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C36",
+                    "StationName": {
+                        "Zh_tw": "凱旋二聖站",
+                        "En": "Kaisyuan Ersheng"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 5,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C36",
+                    "StationName": {
+                        "Zh_tw": "凱旋二聖站",
+                        "En": "Kaisyuan Ersheng"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C37",
+                    "StationName": {
+                        "Zh_tw": "輕軌機廠站",
+                        "En": "LRT Depot"
+                    },
+                    "TripHeadSign": "往C20臺鐵美術館站",
+                    "DestinationStaionID": "C20",
+                    "DestinationStationID": "C20",
+                    "DestinationStationName": {
+                        "Zh_tw": "臺鐵美術館",
+                        "En": "TRA Museum of Fine Arts"
+                    },
+                    "ServiceStatus": 0,
+                    "EstimateTime": 7,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                },
+                {
+                    "LineID": "C",
+                    "LineName": {
+                        "Zh_tw": "環狀輕軌"
+                    },
+                    "StationID": "C37",
+                    "StationName": {
+                        "Zh_tw": "輕軌機廠站",
+                        "En": "LRT Depot"
+                    },
+                    "TripHeadSign": "往C32凱旋公園站",
+                    "DestinationStaionID": "C32",
+                    "DestinationStationID": "C32",
+                    "DestinationStationName": {
+                        "Zh_tw": "凱旋公園站",
+                        "En": "Kaisyuan Park"
+                    },
+                    "ServiceStatus": 1,
+                    "SrcUpdateTime": "2022-04-29T11:57:31+08:00",
+                    "UpdateTime": "2022-04-29T11:58:04+08:00"
+                }
+            ]
+            const oneField = document.getElementById("direct-one");
+            const twoField = document.getElementById("direct-two");
             const lang = "Zh_tw";
             const transLine = {
                 KRTC: [{ Zh_tw: "紅線", value: "R" }, { Zh_tw: "橘線", value: "O" }],
-                KLRT: [{ Zh_tw: "環狀線", value:"C" }]
+                KLRT: [{ Zh_tw: "環狀線", value: "C" }]
             }
 
             const lineSelect = document.getElementById("transport-line");
@@ -180,24 +1318,34 @@
 
             const searchBtn = document.getElementById("real-search");
             searchBtn.addEventListener('click', function () {
-                let sys = transSys.value;
-                let line = lineSelect.value;
-                if (sys !== '' && line !== '') {
-                    let url = `https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/LiveBoard/${transSys.value}?%24filter=LineID%20eq%20'${lineSelect.value}'&%24format=JSON`;
-                    let getStation = new XMLHttpRequest();
-                    getStation.open('get', url);
-                    getStation.send();
-                    getStation.onreadystatechange = function () {
-                        if (this.readyState === 4) {
-                            if (this.status >= 200 && this.readyState < 300) {
-                                console.log(JSON.parse(this.response));
-                                refreshTable(JSON.parse(this.response));
-                            }
-                        }
-                    }
-                }else{
-                    refreshTable([]);
+                switch (transSys.value) {
+                    case 'KRTC':
+                        refreshTable(demo);
+                        break;
+                    case 'KLRT':
+                        refreshKLRTTable(demo);
+                        break;
                 }
+
+                refreshKLRTTable(demo);
+                // let sys = transSys.value;
+                // let line = lineSelect.value;
+                // if (sys !== '' && line !== '') {
+                //     let url = `https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/LiveBoard/${transSys.value}?%24filter=LineID%20eq%20'${lineSelect.value}'&%24format=JSON`;
+                //     let getStation = new XMLHttpRequest();
+                //     getStation.open('get', url);
+                //     getStation.send();
+                //     getStation.onreadystatechange = function () {
+                //         if (this.readyState === 4) {
+                //             if (this.status >= 200 && this.readyState < 300) {
+                //                 console.log(JSON.parse(this.response));
+                //                 refreshTable(JSON.parse(this.response));
+                //             }
+                //         }
+                //     }
+                // } else {
+                //     refreshTable([]);
+                // }
 
             });
 
@@ -205,22 +1353,84 @@
                 let html = '<tr><td colspan="3">無列車資訊</td></tr>'
                 if (realData && realData.length > 0) {
                     html = '';
-                    for (let i = 0; i < realData.length; i+=2) {
-                        const direct = realData[i];
-                        const otherDirect = realData[i+1];
-                        if(i === 2){
-                            const dirWrap = document.getElementById("direct-one");
-                            dirWrap.innerText = direct.TripHeadSign;
-                            const otherDirWrap = document.getElementById("direct-two");
-                            otherDirWrap.innerText = otherDirect.TripHeadSign;
+
+                    let hasField = false;
+
+                    for (let i = 0; i < realData.length; i += 2) {
+                        const lineOne = realData[i];
+                        const lineTwo = realData[i + 1];
+
+                        let lineOneHtml = '';
+                        let lineTwoHtml = '';
+                        let stationName = lineOne.StationName[lang];
+
+                        if (i > 1 && i < realData.length - 2) {
+                            if (!hasField) {
+                                oneField.innerText = lineOne.TripHeadSign;
+                                twoField.innerText = lineTwo.TripHeadSign;
+                                hasField = true;
+                            }
+                            lineOneHtml = lineOne.EstimateTime === 0 ? '進站中' : `${lineOne.EstimateTime}分`;
+                            lineTwoHtml = lineTwo.EstimateTime === 0 ? '進站中' : `${lineTwo.EstimateTime}分`;
+                        } else {
+                            if (i === 0) {
+                                lineOneHtml = '-'
+                                lineTwoHtml = lineOne.EstimateTime === 0 ? '進站中' : `${lineOne.EstimateTime}分`
+                            } else {
+                                lineOneHtml = lineTwo.EstimateTime === 0 ? '進站中' : `${lineTwo.EstimateTime}分`;
+                                lineTwoHtml = '-'
+                            }
                         }
-                        let temp = `
+
+                        let appendHtml = `
                             <tr>
-                                <td>${direct.StationName[lang]}</td>
-                                <td>B</td>
-                                <td>C</td>
-                            </tr>`;
-                        html += temp;
+                                <td>${stationName}</td>
+                                <td>${lineOneHtml}</td>
+                                <td>${lineTwoHtml}</td>
+                            </tr>
+                        `;
+                        html += appendHtml;
+                    }
+                }
+                const container = document.getElementById("estimate-container");
+                container.innerHTML = html;
+            }
+
+            function refreshKLRTTable(klrtData) {
+                let html = '<tr><td colspan="3">無列車資訊</td></tr>'
+                if (klrtData && klrtData.length > 0) {
+                    html = '';
+                    let hasField = false;
+
+                    for (let i = 0; i < klrtData.length; i += 2) {
+                        const lineOne = klrtData[i];
+                        const lineTwo = klrtData[i + 1];
+                        let lineOneHtml = '尚未發車';
+                        let lineTwoHtml = '尚未發車';
+
+                        let stationName = lineOne.StationName[lang];
+
+                        if (!hasField) {
+                            oneField.innerText = lineOne.TripHeadSign;
+                            twoField.innerText = lineTwo.TripHeadSign;
+                            hasField = true;
+                        }
+                        if (lineOne.ServiceStatus === 0) {
+                            lineOneHtml = lineOne.EstimateTime === 0 ? '進站中' : `${lineOne.EstimateTime}分`;
+                        }
+
+                        if (lineTwo.ServiceStatus === 0) {
+                            lineTwoHtml = lineTwo.EstimateTime === 0 ? '進站中' : `${lineTwo.EstimateTime}分`;
+                        }
+
+                        let appendHtml = `
+                            <tr>
+                                <td>${stationName}</td>
+                                <td>${lineOneHtml}</td>
+                                <td>${lineTwoHtml}</td>
+                            </tr>
+                        `;
+                        html += appendHtml;
                     }
                 }
                 const container = document.getElementById("estimate-container");
